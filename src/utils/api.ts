@@ -5,7 +5,7 @@
  * before deploying to production.
  */
 
-const API_URL = "<PUT_YOUR_API_URL_HERE>";
+const API_URL = "https://bo3sjs1954.execute-api.us-east-1.amazonaws.com/dev/blog-gen";
 
 export interface BlogGenerationRequest {
   blog_topic: string;
@@ -27,11 +27,6 @@ export async function generateBlog(topic: string): Promise<BlogGenerationRespons
   // Validate input
   if (!topic || topic.trim().length === 0) {
     throw new Error("Blog topic cannot be empty");
-  }
-
-  // Check if API URL has been configured
-  if (API_URL === "<PUT_YOUR_API_URL_HERE>") {
-    throw new Error("API URL not configured. Please update API_URL in src/utils/api.ts");
   }
 
   try {
