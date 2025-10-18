@@ -1,11 +1,12 @@
 /**
  * API Configuration and Methods
- * 
- * IMPORTANT: Replace the API_URL below with your actual AWS API Gateway URL
- * before deploying to production.
+ *
+ * IMPORTANT:
+ * Replace the API_URL below with your AWS API Gateway endpoint
+ * (it already points to your Lambda).
  */
 
-const API_URL = "https://bo3sjs1954.execute-api.us-east-1.amazonaws.com/dev/blog-gen";
+const API_URL = "Add your api here ";  /* ADD URL here .*/
 
 export interface BlogGenerationRequest {
   blog_topic: string;
@@ -17,26 +18,20 @@ export interface BlogGenerationResponse {
 }
 
 /**
- * Generates a blog using AWS Bedrock API
- * 
- * @param topic - The blog topic to generate content for
- * @returns Promise containing the generated blog content
- * @throws Error if the API request fails
+ * Generate a blog using AWS Bedrock Lambda via API Gateway.
+ *
+ * @param topic - The blog topic to generate
+ * @returns Promise<BlogGenerationResponse>
  */
 export async function generateBlog(topic: string): Promise<BlogGenerationResponse> {
-  // Validate input
   if (!topic || topic.trim().length === 0) {
     throw new Error("Blog topic cannot be empty");
   }
 
   try {
-    // Note: The body is double-encoded as per AWS Lambda requirements
-    // First encoding: blog_topic object
-    // Second encoding: wrapping it in body string
+    // Payload directly matches Lambda's expected format
     const payload = {
-      body: JSON.stringify({
-        blog_topic: topic.trim()
-      })
+      blog_topic: topic.trim(),
     };
 
     console.log("Sending request to:", API_URL);
@@ -47,67 +42,54 @@ export async function generateBlog(topic: string): Promise<BlogGenerationRespons
       headers: {
         "Content-Type": "application/json",
       },
+      // Single encoding only — Lambda now reads body as plain JSON
       body: JSON.stringify(payload),
     });
 
     console.log("Response status:", response.status);
-    console.log("Response ok:", response.ok);
 
-    // Handle non-200 HTTP responses
+    // Handle non-success status
     if (!response.ok) {
-      const responseText = await response.text();
-      console.error("Error response:", responseText);
-      
+      const text = await response.text();
+      console.error("Error response:", text);
+
       if (response.status === 403 || response.status === 0) {
-        throw new Error("CORS error - Your API Gateway needs CORS enabled. Check the README for instructions.");
+        throw new Error(
+          "CORS error — Your API Gateway needs CORS enabled. Check AWS setup."
+        );
       }
       if (response.status >= 500) {
-        throw new Error("Server error - please try again later");
+        throw new Error("Server error — please try again later.");
       }
-      throw new Error(`API request failed with status ${response.status}`);
+      throw new Error(`API failed with status ${response.status}`);
     }
 
-    // Parse the response
     const result = await response.json();
-    
-    // Parse the nested body string (Lambda response format)
-    if (!result.body) {
-      throw new Error("Invalid response format - missing body");
-    }
 
-    const parsedBody = JSON.parse(result.body);
-    
-    // Extract content or message
-    const content = parsedBody.content || parsedBody.message || "";
-    
+    // Lambda proxy integration returns your JSON directly
+    const content = result?.content || "";
+    const message = result?.message || "Blog generated successfully";
+
     if (!content) {
-      throw new Error("No content received from API");
+      throw new Error("No content returned from API");
     }
 
     return {
-      message: parsedBody.message || "Blog generated successfully",
-      content: content,
+      message,
+      content,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error("API Error:", error);
-    
-    // Network errors (CORS, network offline, etc)
+
     if (error instanceof TypeError) {
-      console.error("Network/CORS error details:", error.message);
-      throw new Error("CORS error - Your AWS API Gateway needs CORS configured. See README for setup instructions.");
+      throw new Error(
+        "Network or CORS error — check your API Gateway CORS configuration."
+      );
     }
-    
-    // JSON parsing errors
     if (error instanceof SyntaxError) {
-      throw new Error("Unexpected response format - contact admin");
+      throw new Error("Unexpected response format — check Lambda response JSON.");
     }
-    
-    // Re-throw our custom errors
-    if (error instanceof Error) {
-      throw error;
-    }
-    
-    // Unknown errors
-    throw new Error("An unexpected error occurred");
+
+    throw new Error(error.message || "Unknown error occurred.");
   }
 }
