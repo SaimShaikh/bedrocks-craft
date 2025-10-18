@@ -1,73 +1,298 @@
-# Welcome to your Lovable project
+# 🧠 Bedrock Blog Studio
 
-## Project info
+A production-ready React application for generating AI-powered blog content using AWS Bedrock. Features a beautiful dark UI with Tailwind CSS and seamless integration with your AWS Lambda + Bedrock pipeline.
 
-**URL**: https://lovable.dev/projects/de56277f-5b08-419f-be43-5d4bc578b812
+![Bedrock Blog Studio](https://img.shields.io/badge/AWS-Bedrock-orange) ![React](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3.0-cyan)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **🎨 Modern Dark UI**: Beautiful gradient background with glass-morphic card design
+- **⚡ Real-time Generation**: Instant blog creation with loading states and animations
+- **📋 Copy & Download**: One-click copy to clipboard and download as .txt file
+- **🔒 Type-Safe**: Built with TypeScript for reliability and better developer experience
+- **📱 Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
+- **♿ Accessible**: WCAG-compliant with proper ARIA labels and keyboard navigation
+- **🚨 Error Handling**: Comprehensive error messages with helpful troubleshooting tips
+- **⏱️ Timestamps**: Track when each blog was generated
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/de56277f-5b08-419f-be43-5d4bc578b812) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🏗️ Project Structure
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── TopicForm.tsx        # Input form with validation
+│   ├── ResultPanel.tsx      # Display area for generated blogs
+│   └── ui/                  # shadcn UI components
+├── utils/
+│   └── api.ts               # API configuration and methods
+├── pages/
+│   └── Index.tsx            # Main application page
+├── index.css                # Tailwind + design system
+└── main.tsx                 # Application entry point
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🚀 Quick Start
 
-**Use GitHub Codespaces**
+### Prerequisites
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Node.js 16+ and npm installed ([install with nvm](https://github.com/nvm-sh/nvm))
+- AWS API Gateway URL (from your Lambda + Bedrock backend)
 
-## What technologies are used for this project?
+### Installation
 
-This project is built with:
+1. **Clone the repository**
+   ```bash
+   git clone <YOUR_GIT_URL>
+   cd bedrock-blog-studio
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## How can I deploy this project?
+3. **Configure your API URL** ⚠️ **IMPORTANT**
+   
+   Open `src/utils/api.ts` and replace the placeholder with your AWS API Gateway URL:
+   
+   ```typescript
+   const API_URL = "<PUT_YOUR_API_URL_HERE>";
+   ```
+   
+   Replace with your actual URL:
+   
+   ```typescript
+   const API_URL = "https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/generate-blog";
+   ```
 
-Simply open [Lovable](https://lovable.dev/projects/de56277f-5b08-419f-be43-5d4bc578b812) and click on Share -> Publish.
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   
+   The app will be available at `http://localhost:8080`
 
-## Can I connect a custom domain to my Lovable project?
+### Build for Production
 
-Yes, you can!
+```bash
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+The optimized production build will be in the `dist/` folder.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## 🔌 Backend Integration
+
+### Expected API Response Format
+
+Your AWS Lambda function should return the following JSON structure:
+
+```json
+{
+  "statusCode": 200,
+  "body": "{\"message\":\"Blog generated successfully\",\"content\":\"<generated blog text here>\"}"
+}
+```
+
+### Request Format
+
+The app sends a POST request with double-encoded JSON:
+
+```json
+{
+  "body": "{\"blog_topic\": \"The Future of AI in DevOps\"}"
+}
+```
+
+**Why double-encoding?** AWS Lambda expects the body as a string, and your backend parses it to extract the topic.
+
+### API Configuration
+
+All API logic is centralized in `src/utils/api.ts`:
+
+- **Single source of truth** for the API URL
+- **Type-safe** interfaces for requests/responses
+- **Comprehensive error handling** for all failure scenarios
+- **Input validation** before making requests
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| **React 18.3** | UI framework with hooks |
+| **TypeScript 5.0** | Type safety and better DX |
+| **Vite** | Fast build tool and dev server |
+| **Tailwind CSS** | Utility-first styling |
+| **shadcn/ui** | High-quality UI components |
+| **Lucide React** | Beautiful icon library |
+| **React Query** | State management (installed) |
+
+---
+
+## 🐛 Troubleshooting
+
+### CORS Errors
+
+If you see CORS errors in the browser console:
+
+1. **Enable CORS on your API Gateway:**
+   - Go to AWS Console → API Gateway
+   - Select your API → Actions → Enable CORS
+   - Allow origin `*` for testing (or restrict to your domain in production)
+   - Deploy your API after making changes
+
+2. **Add CORS headers to your Lambda response:**
+   ```python
+   return {
+       'statusCode': 200,
+       'headers': {
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Content-Type',
+           'Access-Control-Allow-Methods': 'POST, OPTIONS'
+       },
+       'body': json.dumps({
+           'message': 'Blog generated successfully',
+           'content': blog_text
+       })
+   }
+   ```
+
+### "API URL not configured" Error
+
+Make sure you've replaced `<PUT_YOUR_API_URL_HERE>` in `src/utils/api.ts` with your actual API Gateway URL.
+
+### Network Errors
+
+- Check your internet connection
+- Verify the API URL is correct and accessible
+- Check AWS Lambda logs in CloudWatch for backend errors
+- Ensure your API Gateway is deployed to a stage (e.g., `prod`)
+
+---
+
+## 🎨 Design System
+
+The app uses a centralized design system defined in `src/index.css`:
+
+- **Colors**: HSL-based for easy theming
+- **Gradients**: Dark space gradient, glass-morphic cards
+- **Shadows**: Glow effects for interactive elements
+- **Animations**: Fade-in, pulse-glow, loading spinners
+
+All styles use semantic tokens - no hardcoded colors in components!
+
+---
+
+## 📸 Screenshots
+
+### Main Interface
+*Beautiful dark gradient background with centered input card*
+
+### Generating State
+*Loading spinner with disabled input during generation*
+
+### Success State
+*Generated blog with copy and download buttons*
+
+### Error State
+*User-friendly error message with troubleshooting tips*
+
+---
+
+## 🔐 Security Best Practices
+
+- ✅ **No API keys in frontend** - Your AWS credentials stay in Lambda
+- ✅ **Input validation** - Client-side and server-side validation
+- ✅ **Rate limiting** - Implement on API Gateway to prevent abuse
+- ✅ **HTTPS only** - Always use HTTPS in production
+- ✅ **CORS configuration** - Restrict origins in production
+
+---
+
+## 📝 Development Notes
+
+### File Naming
+- Components: PascalCase (e.g., `TopicForm.tsx`)
+- Utilities: camelCase (e.g., `api.ts`)
+- Pages: PascalCase (e.g., `Index.tsx`)
+
+### Code Style
+- Functional components with TypeScript
+- React hooks for state management
+- Tailwind utility classes for styling
+- Semantic HTML for accessibility
+
+### Testing Locally Without Backend
+
+To test the UI without a backend, temporarily modify `src/utils/api.ts`:
+
+```typescript
+export async function generateBlog(topic: string): Promise<BlogGenerationResponse> {
+  // Simulate API delay
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  return {
+    message: "Blog generated successfully",
+    content: `# ${topic}\n\nThis is a mock blog post about ${topic}...`
+  };
+}
+```
+
+---
+
+## 🚢 Deployment Options
+
+### Deploy with Lovable
+Simply click Share → Publish in the [Lovable Project](https://lovable.dev/projects/de56277f-5b08-419f-be43-5d4bc578b812)
+
+### Deploy to Vercel
+```bash
+npm install -g vercel
+vercel
+```
+
+### Deploy to Netlify
+```bash
+npm install -g netlify-cli
+netlify deploy --prod
+```
+
+### Deploy to AWS S3 + CloudFront
+```bash
+npm run build
+aws s3 sync dist/ s3://your-bucket-name
+```
+
+---
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+---
+
+## 💬 Support
+
+If you encounter issues:
+1. Check the Troubleshooting section above
+2. Review AWS CloudWatch logs for backend errors
+3. Open an issue in this repository
+
+---
+
+**Built by Bedrock Blog Studio Team | Powered by AWS Bedrock** 🚀
