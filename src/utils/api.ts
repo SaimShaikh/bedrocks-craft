@@ -39,6 +39,9 @@ export async function generateBlog(topic: string): Promise<BlogGenerationRespons
       })
     };
 
+    console.log("Sending request to:", API_URL);
+    console.log("Payload:", JSON.stringify(payload, null, 2));
+
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {
@@ -47,10 +50,16 @@ export async function generateBlog(topic: string): Promise<BlogGenerationRespons
       body: JSON.stringify(payload),
     });
 
+    console.log("Response status:", response.status);
+    console.log("Response ok:", response.ok);
+
     // Handle non-200 HTTP responses
     if (!response.ok) {
-      if (response.status === 403) {
-        throw new Error("CORS error - please enable CORS on API Gateway");
+      const responseText = await response.text();
+      console.error("Error response:", responseText);
+      
+      if (response.status === 403 || response.status === 0) {
+        throw new Error("CORS error - Your API Gateway needs CORS enabled. Check the README for instructions.");
       }
       if (response.status >= 500) {
         throw new Error("Server error - please try again later");
@@ -80,9 +89,12 @@ export async function generateBlog(topic: string): Promise<BlogGenerationRespons
       content: content,
     };
   } catch (error) {
-    // Network errors
-    if (error instanceof TypeError && error.message.includes("fetch")) {
-      throw new Error("Network error - check your connection");
+    console.error("API Error:", error);
+    
+    // Network errors (CORS, network offline, etc)
+    if (error instanceof TypeError) {
+      console.error("Network/CORS error details:", error.message);
+      throw new Error("CORS error - Your AWS API Gateway needs CORS configured. See README for setup instructions.");
     }
     
     // JSON parsing errors
