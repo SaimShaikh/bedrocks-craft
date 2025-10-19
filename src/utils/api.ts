@@ -1,5 +1,5 @@
 const API_URL =
-  "https://g5cshzpy7k.execute-api.us-east-1.amazonaws.com/dev/blog-gen";
+  "ADD AWS API HERE";
 
 export interface BlogGenerationRequest {
   blog_topic: string;
