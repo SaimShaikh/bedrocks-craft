@@ -70,13 +70,21 @@ src/
    ```typescript
    const API_URL = "https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/generate-blog";
    ```
+   <img width="1680" height="1050" alt="Screenshot 2025-10-19 at 5 39 18 PM" src="https://github.com/user-attachments/assets/2866fe2e-c887-4e80-b47d-c9d749148b3b" />
 
-4. **Start development server**
+4. **Now Go To AWS API Getway We Need To Enable CORS and Then Re deploy**
+   <img width="3269" height="1873" alt="Screenshot 2025-10-19 at 4 18 35 PM" src="https://github.com/user-attachments/assets/b31db7c1-e5c8-4899-85bc-d765058db74a" />
+
+
+5. **Start development server**
    ```bash
    npm run dev
    ```
    
    The app will be available at `http://localhost:8080`
+
+  <img width="3308" height="1996" alt="image" src="https://github.com/user-attachments/assets/9bb87c3e-0d0b-42fd-bf0a-b90cbacda6f5" />
+
 
 ### Build for Production
 
