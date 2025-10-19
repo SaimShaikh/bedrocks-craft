@@ -95,15 +95,15 @@ BLOG_S3_BUCKET = your bucket
 <img width="3168" height="1730" alt="image" src="https://github.com/user-attachments/assets/32842d0f-1900-4db7-a906-b917ed169b47" />
 <img width="3259" height="1947" alt="Screenshot 2025-10-18 at 10 32 16 PM" src="https://github.com/user-attachments/assets/c8275684-867e-4d60-8f0e-70a3c7119f88" />
 
-**Step 7: *In Routes Check the Route Details in Select Integration and Attach Integration And Select Lambda* 
+**Step 7: *In Routes Check the Route Details in Select Integration and Attach Integration And Select Lambda** 
 <img width="1902" height="989" alt="Screenshot 2025-10-18 at 7 21 29 PM (2)" src="https://github.com/user-attachments/assets/ff8e0749-79ae-4827-a497-23c08511acf6" />
-
+<img width="3272" height="1971" alt="Screenshot 2025-10-18 at 10 33 51 PM" src="https://github.com/user-attachments/assets/a7d8a9dc-1d16-46e5-9cd1-178c8b341263" />
 **Step 8: Create a Stage for API Getway and Deploy** 
 <img width="3287" height="1932" alt="image" src="https://github.com/user-attachments/assets/2eb0abec-44b3-410e-b594-06e016a61892" />
 <img width="3191" height="1937" alt="image" src="https://github.com/user-attachments/assets/0525b677-7166-490b-80a5-7990a8a7719e" />
 <img width="3321" height="1959" alt="Screenshot 2025-10-18 at 10 32 59 PM" src="https://github.com/user-attachments/assets/e68745c0-a3de-4c0d-bca9-e4cabb461f35" />
-<img width="3319" height="1917" alt="Screenshot 2025-10-18 at 10 33 17 PM" src="https://github.com/user-attachments/assets/7bf3a6ba-6254-4e45-9ec9-40912e173f12" />
-<img width="3272" height="1971" alt="Screenshot 2025-10-18 at 10 33 51 PM" src="https://github.com/user-attachments/assets/a7d8a9dc-1d16-46e5-9cd1-178c8b341263" />
+
+
 <img width="1658" height="972" alt="Screenshot 2025-10-18 at 10 34 07 PM" src="https://github.com/user-attachments/assets/a35b4d30-8505-4fd8-91fb-dbe3214211bf" />
 <img width="3269" height="1917" alt="Screenshot 2025-10-18 at 10 34 27 PM" src="https://github.com/user-attachments/assets/ea648153-5982-4905-b9ce-11135b4ebc25" />
 <img width="1638" height="965" alt="Screenshot 2025-10-18 at 10 41 02 PM" src="https://github.com/user-attachments/assets/594aa98a-cdba-4961-9527-ec39ad7a1207" />
