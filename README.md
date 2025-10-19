@@ -83,33 +83,37 @@ zip -r9 ../lambda_bedrock_blog.zip .  zip your this file
 MODEL_ID = meta.llama3-8b-instruct-v1:0  (or whatever exists in your region)
 FALLBACK_MODEL_ID = amazon.titan-text-express-v1
 BLOG_S3_BUCKET = your bucket
-```
 
-**Step 5: Create a API Getway** 
+```
+**Step 5: Add Permissions** 
+<img width="3295" height="1873" alt="Screenshot 2025-10-18 at 10 44 46 PM" src="https://github.com/user-attachments/assets/721dbaa4-e1ec-4f94-ba26-3c734a0edbbe" />
+<img width="3277" height="1935" alt="Screenshot 2025-10-18 at 10 44 34 PM" src="https://github.com/user-attachments/assets/9522f7d4-b5ce-42cc-8af4-3eeb5a80acc9" />
+
+**Step 6: Create a API Getway** 
 <img width="3210" height="2001" alt="image" src="https://github.com/user-attachments/assets/8ff4f617-da19-4571-81c3-b68926941565" />
 <img width="3185" height="1718" alt="image" src="https://github.com/user-attachments/assets/782add4d-92ef-420e-ac33-7cef8cabe440" />
 <img width="3230" height="1674" alt="image" src="https://github.com/user-attachments/assets/d69404a9-9f9c-4419-a7fd-46b55656403b" />
 
-**Step 6: Create a Route for lambda to API Getway** 
+**Step 7: Create a Route for lambda to API Getway** 
 
 <img width="3168" height="1730" alt="image" src="https://github.com/user-attachments/assets/32842d0f-1900-4db7-a906-b917ed169b47" />
 <img width="3259" height="1947" alt="Screenshot 2025-10-18 at 10 32 16 PM" src="https://github.com/user-attachments/assets/c8275684-867e-4d60-8f0e-70a3c7119f88" />
 
-**Step 7: In Routes Check the Route Details in Select Integration and Attach Integration And Select Lambda** 
+**Step 8: In Routes Check the Route Details in Select Integration and Attach Integration And Select Lambda** 
 <img width="1902" height="989" alt="Screenshot 2025-10-18 at 7 21 29 PM (2)" src="https://github.com/user-attachments/assets/ff8e0749-79ae-4827-a497-23c08511acf6" />
 <img width="3272" height="1971" alt="Screenshot 2025-10-18 at 10 33 51 PM" src="https://github.com/user-attachments/assets/a7d8a9dc-1d16-46e5-9cd1-178c8b341263" />
-**Step 8: Create a Stage for API Getway and Deploy** 
+**Step 9: Create a Stage for API Getway and Deploy** 
 <img width="3287" height="1932" alt="image" src="https://github.com/user-attachments/assets/2eb0abec-44b3-410e-b594-06e016a61892" />
 <img width="3191" height="1937" alt="image" src="https://github.com/user-attachments/assets/0525b677-7166-490b-80a5-7990a8a7719e" />
 <img width="3321" height="1959" alt="Screenshot 2025-10-18 at 10 32 59 PM" src="https://github.com/user-attachments/assets/e68745c0-a3de-4c0d-bca9-e4cabb461f35" />
 
-**Step 9: Deploy again and Go to Stage select Dev And You have URL **
+**Step 10: Deploy again and Go to Stage select Dev And You have URL **
 <img width="1658" height="972" alt="Screenshot 2025-10-18 at 10 34 07 PM" src="https://github.com/user-attachments/assets/a35b4d30-8505-4fd8-91fb-dbe3214211bf" />
 <img width="3269" height="1917" alt="Screenshot 2025-10-18 at 10 34 27 PM" src="https://github.com/user-attachments/assets/ea648153-5982-4905-b9ce-11135b4ebc25" />
-<img width="1638" height="965" alt="Screenshot 2025-10-18 at 10 41 02 PM" src="https://github.com/user-attachments/assets/594aa98a-cdba-4961-9527-ec39ad7a1207" />
-<img width="3295" height="1873" alt="Screenshot 2025-10-18 at 10 44 46 PM" src="https://github.com/user-attachments/assets/721dbaa4-e1ec-4f94-ba26-3c734a0edbbe" />
 
-<img width="3277" height="1935" alt="Screenshot 2025-10-18 at 10 44 34 PM" src="https://github.com/user-attachments/assets/9522f7d4-b5ce-42cc-8af4-3eeb5a80acc9" />
+
+
+
 
 
 
