@@ -118,7 +118,8 @@ BLOG_S3_BUCKET = your bucket
 <img width="3283" height="1988" alt="image" src="https://github.com/user-attachments/assets/3a81d8cd-1e9b-467c-8dca-fea9ca261a0f" />
 
 **You Can Check You Lambda Logs in > Monitoring > Cloud Watch Logs > Logs Groups > 1st Log Inside the you will find all logs**
-<img width="1680" height="1050" alt="Screenshot 2025-10-19 at 4 28 35 PM" src="https://github.com/user-attachments/assets/d14f4573-4e88-4060-b45e-fcd9b564569e" />
+<img width="3307" height="1810" alt="image" src="https://github.com/user-attachments/assets/87dcf611-7788-40ab-a92b-c841bbee33a9" />
+
 
 
 # Now for app Intigration Switch in to Main Branch and Follow all steps
