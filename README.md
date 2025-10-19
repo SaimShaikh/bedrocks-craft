@@ -1,4 +1,4 @@
-<img width="3283" height="1988" alt="image" src="https://github.com/user-attachments/assets/be0883b1-cd9e-4f9f-ab0e-cf65aadc96d5" /># 🧠 AWS Gen AI Project — Blog Generator (Lambda + Bedrock + React + S3)
+# 🧠 AWS Gen AI Project — Blog Generator (Lambda + Bedrock + React + S3)
 
 ---
 
