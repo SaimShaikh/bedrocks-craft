@@ -26,12 +26,13 @@
 <img width="3323" height="1258" alt="image" src="https://github.com/user-attachments/assets/332fafbb-9acb-4366-b41d-0c2f9376ab41" />
 
 
-**Step 1: Create a Lambda** 
+**Step 2: Create a Lambda** 
 <img width="3224" height="1929" alt="image" src="https://github.com/user-attachments/assets/129635eb-8ac5-4327-9db8-6053f0e94d79" />
 <img width="3191" height="1925" alt="image" src="https://github.com/user-attachments/assets/c1b2f835-7192-4ef3-9c01-91333a338cd1" />
 <img width="3300" height="1960" alt="image" src="https://github.com/user-attachments/assets/bd1cb5f3-fa5b-4986-8344-761174eee387" />
 
-**Step 1: Add Layer in Lambda but before adding layer in lambda we required latest boto3 file follow the steps**
+*Lambda code is Avalible on*
+**Step 3: Add Layer in Lambda but before adding layer in lambda we required latest boto3 file follow the steps**
 
 ```bash
 python3 --version
@@ -54,7 +55,7 @@ lambda_bedrock_blog/
 
 zip -r9 ../lambda_bedrock_blog.zip .  zip your this file 
 ```
-**Step 1: Now add Layer Lambda** 
+**Step 4: Now add Layer Lambda** 
 
 <img width="3308" height="1977" alt="image" src="https://github.com/user-attachments/assets/f9271970-9d2d-4394-9ea6-1e884b49660d" />
 
@@ -70,19 +71,22 @@ zip -r9 ../lambda_bedrock_blog.zip .  zip your this file
 <img width="3177" height="1930" alt="image" src="https://github.com/user-attachments/assets/d527af62-6dfa-4057-a5e8-031e62abf6ca" />
 
 *Now Set the Env Variable*
-<img width="3177" height="1930" alt="image" src="https://github.com/user-attachments/assets/3337c4bf-0acc-40d8-bec1-959b9ae56711" />
+
 <img width="3280" height="1979" alt="image" src="https://github.com/user-attachments/assets/62b077b7-d595-4db9-9ffe-1e02a463a536" />
 
 ```bash
-MODELLID = meta.llama3-8b-instruct-v1:0
-FALLBACK_MODEL_ID = amazon.utan-text-exoress-v10
-BLOG_S3_BUCKET = Your Bucket Name
+MODEL_ID = meta.llama3-8b-instruct-v1:0  (or whatever exists in your region)
+FALLBACK_MODEL_ID = amazon.titan-text-express-v1
+BLOG_S3_BUCKET = your bucket
 ```
 
-**Step 1: Create a API Getway** 
+**Step 5: Create a API Getway** 
 <img width="3210" height="2001" alt="image" src="https://github.com/user-attachments/assets/8ff4f617-da19-4571-81c3-b68926941565" />
 <img width="3185" height="1718" alt="image" src="https://github.com/user-attachments/assets/782add4d-92ef-420e-ac33-7cef8cabe440" />
 <img width="3230" height="1674" alt="image" src="https://github.com/user-attachments/assets/d69404a9-9f9c-4419-a7fd-46b55656403b" />
+
+**Step 6: Create a Route for lambda to API Getway** 
+
 <img width="3168" height="1730" alt="image" src="https://github.com/user-attachments/assets/32842d0f-1900-4db7-a906-b917ed169b47" />
 <img width="3259" height="1947" alt="Screenshot 2025-10-18 at 10 32 16 PM" src="https://github.com/user-attachments/assets/c8275684-867e-4d60-8f0e-70a3c7119f88" />
 <img width="3287" height="1932" alt="image" src="https://github.com/user-attachments/assets/2eb0abec-44b3-410e-b594-06e016a61892" />
