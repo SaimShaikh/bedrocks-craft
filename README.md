@@ -31,7 +31,12 @@
 <img width="3191" height="1925" alt="image" src="https://github.com/user-attachments/assets/c1b2f835-7192-4ef3-9c01-91333a338cd1" />
 <img width="3300" height="1960" alt="image" src="https://github.com/user-attachments/assets/bd1cb5f3-fa5b-4986-8344-761174eee387" />
 
+---
+
 *Lambda code is Avalible on*
+
+---
+
 **Step 3: Add Layer in Lambda but before adding layer in lambda we required latest boto3 file follow the steps**
 
 ```bash
@@ -89,6 +94,8 @@ BLOG_S3_BUCKET = your bucket
 
 <img width="3168" height="1730" alt="image" src="https://github.com/user-attachments/assets/32842d0f-1900-4db7-a906-b917ed169b47" />
 <img width="3259" height="1947" alt="Screenshot 2025-10-18 at 10 32 16 PM" src="https://github.com/user-attachments/assets/c8275684-867e-4d60-8f0e-70a3c7119f88" />
+
+**Step 7: Create a Stage for API Getway and Deploy** 
 <img width="3287" height="1932" alt="image" src="https://github.com/user-attachments/assets/2eb0abec-44b3-410e-b594-06e016a61892" />
 <img width="3191" height="1937" alt="image" src="https://github.com/user-attachments/assets/0525b677-7166-490b-80a5-7990a8a7719e" />
 <img width="3321" height="1959" alt="Screenshot 2025-10-18 at 10 32 59 PM" src="https://github.com/user-attachments/assets/e68745c0-a3de-4c0d-bca9-e4cabb461f35" />
