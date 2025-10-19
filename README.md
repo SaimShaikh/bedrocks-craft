@@ -198,21 +198,6 @@ The app uses a centralized design system defined in `src/index.css`:
 
 All styles use semantic tokens - no hardcoded colors in components!
 
----
-
-## 📸 Screenshots
-
-### Main Interface
-*Beautiful dark gradient background with centered input card*
-
-### Generating State
-*Loading spinner with disabled input during generation*
-
-### Success State
-*Generated blog with copy and download buttons*
-
-### Error State
-*User-friendly error message with troubleshooting tips*
 
 ---
 
@@ -226,12 +211,6 @@ All styles use semantic tokens - no hardcoded colors in components!
 
 ---
 
-## 📝 Development Notes
-
-### File Naming
-- Components: PascalCase (e.g., `TopicForm.tsx`)
-- Utilities: camelCase (e.g., `api.ts`)
-- Pages: PascalCase (e.g., `Index.tsx`)
 
 ### Code Style
 - Functional components with TypeScript
@@ -239,48 +218,10 @@ All styles use semantic tokens - no hardcoded colors in components!
 - Tailwind utility classes for styling
 - Semantic HTML for accessibility
 
-### Testing Locally Without Backend
 
-To test the UI without a backend, temporarily modify `src/utils/api.ts`:
-
-```typescript
-export async function generateBlog(topic: string): Promise<BlogGenerationResponse> {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  
-  return {
-    message: "Blog generated successfully",
-    content: `# ${topic}\n\nThis is a mock blog post about ${topic}...`
-  };
-}
-```
 
 ---
 
-## 🚢 Deployment Options
-
-### Deploy with Lovable
-Simply click Share → Publish in the [Lovable Project](https://lovable.dev/projects/de56277f-5b08-419f-be43-5d4bc578b812)
-
-### Deploy to Vercel
-```bash
-npm install -g vercel
-vercel
-```
-
-### Deploy to Netlify
-```bash
-npm install -g netlify-cli
-netlify deploy --prod
-```
-
-### Deploy to AWS S3 + CloudFront
-```bash
-npm run build
-aws s3 sync dist/ s3://your-bucket-name
-```
-
----
 
 ## 📄 License
 
