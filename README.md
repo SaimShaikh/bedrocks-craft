@@ -1,4 +1,4 @@
-# 🧠 AWS Gen AI Project — Blog Generator (Lambda + Bedrock + React + S3)
+<img width="3283" height="1988" alt="image" src="https://github.com/user-attachments/assets/be0883b1-cd9e-4f9f-ab0e-cf65aadc96d5" /># 🧠 AWS Gen AI Project — Blog Generator (Lambda + Bedrock + React + S3)
 
 ---
 
@@ -107,13 +107,21 @@ BLOG_S3_BUCKET = your bucket
 <img width="3191" height="1937" alt="image" src="https://github.com/user-attachments/assets/0525b677-7166-490b-80a5-7990a8a7719e" />
 <img width="3321" height="1959" alt="Screenshot 2025-10-18 at 10 32 59 PM" src="https://github.com/user-attachments/assets/e68745c0-a3de-4c0d-bca9-e4cabb461f35" />
 
-**Step 10: Deploy again and Go to Stage select Dev And You have URL **
+**Step 10: Deploy again and Go to Stage select Dev And You have URL**
 <img width="1658" height="972" alt="Screenshot 2025-10-18 at 10 34 07 PM" src="https://github.com/user-attachments/assets/a35b4d30-8505-4fd8-91fb-dbe3214211bf" />
 <img width="3269" height="1917" alt="Screenshot 2025-10-18 at 10 34 27 PM" src="https://github.com/user-attachments/assets/ea648153-5982-4905-b9ce-11135b4ebc25" />
 
+**Step 11: Now for API Testing You Can Use the Postman Select POST method Then Select body Then raw**
+<img width="1894" height="973" alt="Screenshot 2025-10-18 at 8 32 56 PM (2)" src="https://github.com/user-attachments/assets/870f548e-8da9-4727-ae9d-1d2902a101d3" />
+
+**Your Blog data is is Stored in Your S3 Bucket**
+<img width="3283" height="1988" alt="image" src="https://github.com/user-attachments/assets/3a81d8cd-1e9b-467c-8dca-fea9ca261a0f" />
+
+**You Can Check You Lambda Logs in > Monitoring > Cloud Watch Logs > Logs Groups > 1st Log Inside the you will find all logs**
+<img width="1680" height="1050" alt="Screenshot 2025-10-19 at 4 28 35 PM" src="https://github.com/user-attachments/assets/d14f4573-4e88-4060-b45e-fcd9b564569e" />
 
 
-
+# Now for app Intigration Switch in to Main Branch and Follow all steps
 
 
 
