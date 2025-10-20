@@ -84,7 +84,25 @@ MODEL_ID = meta.llama3-8b-instruct-v1:0  (or whatever exists in your region)
 FALLBACK_MODEL_ID = amazon.titan-text-express-v1
 BLOG_S3_BUCKET = your bucket
 
+
+🧠 Why You Still Need Environment Variables in Lambda
+Even though your Lambda code already includes these values (like model ID, fallback model, and bucket name), environment variables serve a different purpose — configuration separation.
+Let’s break it down:
+⚙️ Code should not need changes for deployment **
+Right now, if you hardcode something like:
+s3_bucket = "aws-bucket-for-bedrock-data"
+and tomorrow you change your bucket name or region —
+you’d have to edit the code, zip it, and redeploy the Lambda. 🥴
+
+Instead, if you keep:
+s3_bucket = os.environ.get("BLOG_S3_BUCKET")
+then you can just change the value in the AWS Console → Environment Variables — no redeploy needed.
+👉 Configuration stays flexible; code stays clean.
+
 ```
+---
+
+
 **Step 5: Add Permissions** 
 <img width="3295" height="1873" alt="Screenshot 2025-10-18 at 10 44 46 PM" src="https://github.com/user-attachments/assets/721dbaa4-e1ec-4f94-ba26-3c734a0edbbe" />
 <img width="3277" height="1935" alt="Screenshot 2025-10-18 at 10 44 34 PM" src="https://github.com/user-attachments/assets/9522f7d4-b5ce-42cc-8af4-3eeb5a80acc9" />
