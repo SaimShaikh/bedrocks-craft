@@ -5,7 +5,7 @@ A production-ready React application for generating AI-powered blog content usin
 ![Bedrock Blog Studio](https://img.shields.io/badge/AWS-Bedrock-orange) ![React](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-3.0-cyan)
 
 ---
-## Want to Know about AWS BedRock Visit This > https://github.com/SaimShaikh/Cloud_Computing/tree/main/AWS/AWS_BedRock
+## Want to Know about AWS BedRock Visit This > [Click ](https://github.com/SaimShaikh/Cloud_Computing/tree/main/AWS/AWS_BedRock)
 ## ✨ Features
 
 - **🎨 Modern Dark UI**: Beautiful gradient background with glass-morphic card design
