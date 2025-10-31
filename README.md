@@ -75,6 +75,16 @@ src/
 4. **Now Go To AWS API Getway We Need To Enable CORS and Then Re deploy**
    <img width="3269" height="1873" alt="Screenshot 2025-10-19 at 4 18 35 PM" src="https://github.com/user-attachments/assets/b31db7c1-e5c8-4899-85bc-d765058db74a" />
 
+## ✅ Breakdown of what each header does:
+   | Header                 | Purpose                                      |
+| ---------------------- | -------------------------------------------- |
+| `Content-Type`         | Allows clients to send JSON, form data, etc. |
+| `Authorization`        | Needed for Bearer tokens or IAM auth         |
+| `X-Amz-Date`           | Required by AWS SDK/API signed requests      |
+| `X-Api-Key`            | For API Gateway key-based auth               |
+| `X-Amz-Security-Token` | For temporary STS session credentials        |
+| `X-Amzn-Trace-Id`      | For AWS X-Ray tracing                        |
+
 
 5. **Start development server**
    ```bash
