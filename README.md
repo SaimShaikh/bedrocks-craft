@@ -127,6 +127,11 @@ The app sends a POST request with double-encoded JSON:
 {
   "body": "{\"blog_topic\": \"The Future of AI in DevOps\"}"
 }
+
+for Postman use this
+{
+  "blog_topic": ""
+}
 ```
 
 **Why double-encoding?** AWS Lambda expects the body as a string, and your backend parses it to extract the topic.
